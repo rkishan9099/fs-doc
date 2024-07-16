@@ -1,7 +1,8 @@
 ## React Native Sip.js
 
 
-```
+```bash
+
 import React, { useEffect, useState } from 'react';
 import { View, Text, Button, TextInput, Alert, PermissionsAndroid, Platform } from 'react-native';
 import { Inviter, Registerer, RegistererState, SessionState, UserAgent, UserAgentOptions } from 'sip.js';
