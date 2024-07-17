@@ -34,10 +34,10 @@ const SipjsVideoScreen = () => {
   const [localStream, setLocalStream] = useState<MediaStream | null>(null);
   const [remoteStream, setRemoteStream] = useState<MediaStream | null>(null);
   const [incomingSession, setIncomingSession] = useState<any | null>(null);
-  const [username, setUsername] = useState<string>('7002');
-  const [password, setPassword] = useState<string>('digit90digit@@digit90');
+  const [username, setUsername] = useState<string>('SIP_USERNAME');
+  const [password, setPassword] = useState<string>('SIP_PASSWORD');
   const [destination, setDestination] = useState<string>('');
-  const [webSocketUrl, setWebSocketUrl] = useState<string>('wss://s14switch.digitechnobytes.online:7443'); // Replace with your WebSocket URL
+  const [webSocketUrl, setWebSocketUrl] = useState<string>('WEB_SOCKET_URL'); // Replace with your WebSocket URL
 
   const [callStatus, setCallStatus] = useState<string>('Disconnected');
   const [connected, setConnected] = useState<boolean>(false);
@@ -71,7 +71,7 @@ const SipjsVideoScreen = () => {
 
   useEffect(() => {
     if (username && password && webSocketUrl) {
-      const sip_aor = `sip:${username}@s14switch.digitechnobytes.online`;
+      const sip_aor = `sip:${username}@SIP_DOMAIN`;
       const userAgentOptions: UserAgentOptionsType = {
         uri: UserAgent.makeURI(sip_aor),
         transportOptions: {
@@ -187,7 +187,7 @@ const SipjsVideoScreen = () => {
   };
 
   const makeCall = async () => {
-    const uri: any = UserAgent.makeURI(`sip:${destination}@s14switch.digitechnobytes.online`);
+    const uri: any = UserAgent.makeURI(`sip:${destination}@SIP_DOMAIN`);
     
     if (ua && destination) {
       const localStream = await mediaDevices.getUserMedia({ audio: true, video: true });
