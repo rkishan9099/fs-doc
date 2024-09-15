@@ -26,16 +26,23 @@ sudo make install
 
 ### *Install lua-mongo*
 
+Install MongoDB C Driver (libmongoc)
 ```bash
-git clone https://github.com/neoxic/lua-mongo.git
+sudo apt-get update
+sudo apt-get install libmongoc-1.0-0 libmongoc-dev
+```
 
-cd lua-mongo
-sudo apt-get install liblua5.3-dev
+Install Lua and LuaRocks
+```bash
+sudo apt-get install lua5.3 luarocks
+```
 
-vim CMakeLists.txt
-set(USE_LUA_VERSION 5.3)
+ Install lua-mongo using LuaRocks
+ ```bash
+sudo luarocks install lua-mongo
+```
 
-cmake .
-make 
-sudo make install
+Verify Installation
+```bash
+luarocks list
 ```
